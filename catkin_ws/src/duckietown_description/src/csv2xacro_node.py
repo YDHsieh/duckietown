@@ -25,6 +25,8 @@ class Csv2xacroNode(object):
         self.tile_width = self.setupParam("~tile_width", 0.595)
         self.tag_offset = self.setupParam("~tag_offset", 0.125)
         self.tag_curb = self.setupParam("~tag_curb", 0.035)
+        self.tag_orig = self.setupParam("~tag_orig", 0.01)     #new set
+        self.tag_curve = self.setupParam("~tag_curve", 0.165)  #new set
 
         rospy.loginfo("[%s] has started", self.node_name)
 
@@ -35,7 +37,7 @@ class Csv2xacroNode(object):
         return value
 
     def createXacroMap(self):
-        writer = Csv2Xacro.Csv2Xacro(self.tile_map_csv, self.tag_map_csv, self.map_name, self.tile_width, self.tag_offset, self.tag_curb)
+        writer = Csv2Xacro.Csv2Xacro(self.tile_map_csv, self.tag_map_csv, self.map_name, self.tile_width, self.tag_offset, self.tag_curb, self.tag_orig, self.tag_curve)
         writer.writeXacro()
 
 

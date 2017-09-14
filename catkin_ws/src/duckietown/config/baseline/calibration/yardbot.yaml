@@ -1,0 +1,23 @@
+camera_matrix:
+  cols: 3
+  data: [492.58834934377245, 0.0, 304.1855666623008, 0.0, 497.99942794424095, 243.99076244151513,
+    0.0, 0.0, 1.0]
+  rows: 3
+camera_name: yardbot/camera_node
+distortion_coefficients:
+  cols: 5
+  data: [-0.2479504664273197, 0.015466975385993875, 0.006099285345904554, -0.004082583453830156,
+    0.0]
+  rows: 1
+distortion_model: plumb_bob
+image_height: 480
+image_width: 640
+projection_matrix:
+  cols: 4
+  data: [422.51361083984375, 0.0, 292.0466032451586, 0.0, 0.0, 464.0056457519531,
+    246.92291389223647, 0.0, 0.0, 0.0, 1.0, 0.0]
+  rows: 3
+rectification_matrix:
+  cols: 3
+  data: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+  rows: 3

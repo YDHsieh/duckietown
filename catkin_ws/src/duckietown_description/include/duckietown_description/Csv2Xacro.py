@@ -3,7 +3,7 @@ from xml.dom.minidom import Document
 
 class Csv2Xacro(object):
 
-    def __init__(self, tile_csv_file, tag_csv_file, xacro_file, tile_width, tag_offset, tag_curb):
+    def __init__(self, tile_csv_file, tag_csv_file, xacro_file, tile_width, tag_offset, tag_curb , tag_orig , tag_curv ):
         self.tile_csv_file = open(tile_csv_file, 'rb')
         self.tag_csv_file = open(tag_csv_file, 'rb')
         self.tile_csv = csv.reader(self.tile_csv_file, delimiter=',')
@@ -12,6 +12,9 @@ class Csv2Xacro(object):
         self.tile_width = tile_width
         self.tag_offset = tag_offset
         self.tag_curb = tag_curb
+        self.tag_orig = tag_orig   #new set
+        self.tag_curve = tag_curv  #new set
+
 
     def writeXacro(self):
 
@@ -78,7 +81,31 @@ class Csv2Xacro(object):
         tempChild.setAttribute('name','pos_7')
         tempChild.setAttribute('value','%s %s'%(str(self.tag_offset), str(-self.tag_curb)))
         root.appendChild(tempChild)
+        
+        tempChild = doc.createElement('xacro:property')
+        tempChild.setAttribute('name','pos_8')
+        tempChild.setAttribute('value','%s %s'%(str(self.tag_orig), str(self.tag_orig)))
+        root.appendChild(tempChild)  #new set
 
+        tempChild = doc.createElement('xacro:property')
+        tempChild.setAttribute('name','pos_9')
+        tempChild.setAttribute('value','%s %s'%(str(self.tag_curve), str(self.tag_curve)))
+        root.appendChild(tempChild)  #new set
+
+        tempChild = doc.createElement('xacro:property')
+        tempChild.setAttribute('name','pos_10')
+        tempChild.setAttribute('value','%s %s'%(str(self.tag_curve), str(-self.tag_curve)))
+        root.appendChild(tempChild)  #new set
+
+        tempChild = doc.createElement('xacro:property')
+        tempChild.setAttribute('name','pos_11')
+        tempChild.setAttribute('value','%s %s'%(str(-self.tag_curve), str(self.tag_curve)))
+        root.appendChild(tempChild)  #new set
+
+        tempChild = doc.createElement('xacro:property')
+        tempChild.setAttribute('name','pos_12')
+        tempChild.setAttribute('value','%s %s'%(str(-self.tag_curve), str(-self.tag_curve)))
+        root.appendChild(tempChild)  #new set
 
         # Create comment
         comment = doc.createComment('Include the tile and tag macros')

@@ -1,0 +1,33 @@
+<launch>
+ <include file="$(find gazebo_ros)/launch/empty_world.launch"/> 
+  <!-- Load diffbot model -->
+  <param name="robot_description"
+         command="$(find xacro)/xacro.py '$(find rc_car_description)/urdf/diffbot.xacro' --inorder" />
+
+  <!-- Start diffbot -->
+  <node name="diffbot"
+      pkg="diff_drive_controller"
+      type="diffbot"/>
+
+  <!-- Load controller config -->
+  <rosparam command="load" file="$(find rc_car_description)/include/rc_car_description/diffbot_controller.yaml" />
+
+  <!-- Spawn controller -->
+  <node name="controller_spawner"
+        pkg="controller_manager" type="spawner" output="screen"
+        args="diffbot_controller" />
+
+  <!-- rqt_plot monitoring -->
+  <!--
+  <node name="diffbot_pos_monitor"
+        pkg="rqt_plot"
+        type="rqt_plot"
+        args="/diffbot_controller/odom/pose/pose/position/x" />
+
+  <node name="diffbot_vel_monitor"
+        pkg="rqt_plot"
+        type="rqt_plot"
+        args="/diffbot_controller/odom/twist/twist/linear/x" />
+  -->
+</launch>
+

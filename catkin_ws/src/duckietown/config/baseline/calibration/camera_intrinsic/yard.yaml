@@ -1,0 +1,23 @@
+camera_matrix:
+  cols: 3
+  data: [499.39738986670363, 0.0, 312.260927706408, 0.0, 504.3691028973683, 239.49612059529832,
+    0.0, 0.0, 1.0]
+  rows: 3
+camera_name: yard/camera_node
+distortion_coefficients:
+  cols: 5
+  data: [-0.23518507022711543, -0.03219379954506449, 0.005868681952358276, -0.004036641372452006,
+    0.0]
+  rows: 1
+distortion_model: plumb_bob
+image_height: 480
+image_width: 640
+projection_matrix:
+  cols: 4
+  data: [427.0152282714844, 0.0, 302.5520344540655, 0.0, 0.0, 471.5027160644531, 241.57167315481092,
+    0.0, 0.0, 0.0, 1.0, 0.0]
+  rows: 3
+rectification_matrix:
+  cols: 3
+  data: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+  rows: 3

@@ -8,7 +8,7 @@
     <arg name="live" default="true" doc="live set to false means we don't run the actual camera (i.e. running from a log file" />
     <arg name="rect" default="false" />
 
-    <!-- camera_node -->
+    <!--camera_node -->    
     <group if="$(arg live)">
         <include  file="$(find pi_camera)/launch/camera_node.launch">
             <arg name="veh" value="$(arg veh)"/>
